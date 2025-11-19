@@ -1,0 +1,230 @@
+/* src/styles/Login.module.css */
+
+/* --- ANIMATIONS --- */
+
+/* 1. Card Entry: Slides up gently */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* 2. Logo Float: Gently bobs up and down */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  /* 3. Input Focus: subtle pulse */
+  @keyframes pulseBorder {
+    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+  }
+  
+  .container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    
+    /* Animation: Card appears smoothly */
+    animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4f46e5, #818cf8);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin: 0 auto 16px auto;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    
+    /* Animation: Logo floats continuously */
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 26px;
+    color: #111827;
+    font-weight: 800;
+  }
+  
+  .subtitle {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .inputGroup {
+    margin-bottom: 20px;
+    /* Animation: Inputs slide in slightly later than card */
+    animation: slideUp 0.8s ease-out forwards; 
+  }
+  
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+  
+  /* NEW: Wrapper to hold input + eye icon */
+  .passwordWrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    background: #f9fafb;
+  }
+  
+  /* Add padding right for password input so text doesn't hit the icon */
+  .passwordInput {
+    composes: input; /* inherits styles from .input */
+    padding-right: 40px; 
+  }
+  
+  .input:focus {
+    border-color: #4f46e5;
+    background: #fff;
+    /* Animation: Pulse effect on click */
+    animation: pulseBorder 1s; 
+  }
+  
+  /* NEW: The Eye Icon Button */
+  .toggleBtn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  
+  .toggleBtn:hover {
+    color: #4f46e5;
+  }
+  
+  .labelRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forgotLink {
+    font-size: 12px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .rememberRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    animation: slideUp 0.9s ease-out forwards;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4b5563;
+  }
+  
+  .checkbox {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #4f46e5;
+    cursor: pointer;
+  }
+  
+  .submitBtn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4f46e5, #4338ca);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    animation: slideUp 1s ease-out forwards;
+  }
+  
+  .submitBtn:hover {
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .submitBtn:active {
+    transform: translateY(1px);
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #6b7280;
+    animation: slideUp 1.1s ease-out forwards;
+  }
+  
+  .footerLink {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .errorMsg {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #fecaca;
+    text-align: center;
+    animation: slideUp 0.3s ease-out;
+  }
