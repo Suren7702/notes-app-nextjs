@@ -82,7 +82,7 @@ app.get('/', (req, res) => {
           The backend server is running successfully.<br>
           Ready to accept requests from the frontend.
         </p>
-        <a href="https://notes-app-nextjs.vercel.app" class="link">→ Go to Frontend App</a>
+        <a href="https://notes-app-alpha-black.vercel.app/login" class="link">→ Go to Frontend App</a>
       </div>
     </body>
     </html>
